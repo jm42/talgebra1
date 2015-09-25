@@ -59,3 +59,7 @@ unionListasOrdenadas [] b = b
 unionListasOrdenadas a b | ap < bp = [ap] ++ [bp] ++ unionListasOrdenadas (tail a) (tail b) where ap = head a ; bp = head b
 unionListasOrdenadas a b | otherwise = [bp] ++ [ap] ++ unionListasOrdenadas (tail a) (tail b) where ap = head a ; bp = head b
 
+ordenarLista :: [Integer] -> [Integer]
+ordenarLista [] = []
+ordenarLista l = ordenarLista (quitar m l) ++ [m] where m = maximo l
+
