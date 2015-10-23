@@ -60,3 +60,11 @@ sumaProg Vacio p = p
 sumaProg p Vacio = p
 sumaProg (CongruentesA a0 b0) (CongruentesA a1 b1) = CongruentesA (a0 + a1) (gcd b0 b1)
 
+interseccion :: ProgAritmetica -> ProgAritmetica -> ProgAritmetica
+interseccion Vacio _ = Vacio
+interseccion _ Vacio = Vacio
+interseccion (CongruentesA a0 b0) (CongruentesA a1 b1) = CongruentesA (a0 * b1 + a1 * b0) (b0 * b1)
+
+-- euclides :: Integer -> Integer -> (Integer, Integer, Integer)
+-- euclides 0 _ =
+
