@@ -32,6 +32,14 @@ sumarTodo :: Num t => RT t -> t
 sumarTodo (Rose n []) = n
 sumarTodo (Rose n l) = n + (sumarTodos l)
 
+sumaTodo :: Num t => RT t -> t
+sumaTodo (Rose r h) = r + (sum sumaHijos)
+    where sumaHijos = sumaCadaHijo h
+
+sumaCadaHijo :: Num t => [RT t] -> [t]
+sumaCadaHijo [] = []
+sumaCadaHijo (a:as) = (sumaTodo a) : (sumaCadaHijo as)
+
 esHoja :: RT t -> Bool
 esHoja (Rose _ []) = True
 esHoja (Rose _ _) = False
